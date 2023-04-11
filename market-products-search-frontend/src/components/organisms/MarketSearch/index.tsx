@@ -13,24 +13,27 @@ const MarketSearch: React.FC = () => {
   return(
     <Container className="container">
       <Container className="filter-container">
-        <Select types={webSelect} defaultValue="Web"/>
-        <Select types={categorySelect} defaultValue="Categorias"/>
-        <Input 
-          onChange={({ target }: BaseSyntheticEvent) => setProduct(target.value)}
-          value={product}
-          className="product-input"
-          placeholder="Produto"
+        <Container className="select-container">
+          <Select types={webSelect} defaultValue="Web"/>
+          <Select types={categorySelect} defaultValue="Categorias"/>
+        </Container>
+        <Container className="input-container">
+          <Input 
+            onChange={({ target }: BaseSyntheticEvent) => setProduct(target.value)}
+            value={product}
+            className="form-control form-control-lg"
+            placeholder="Produto"
           />
+        </Container>
         <Button content="Search" onClick={() => console.log("CLICOU")}/>
       </Container>
       <Card
         src="Fake-card-src"
         alt="Fake-card-alt"
         width="200px"
-        titleContent="Fake Card Title"
-        classNameContainer="cards-container"
+        titleContent="Geladeira Frost-free"
         priceContent="$ 120"
-        paragraphContent="conteúdo do paragrafo"
+        paragraphContent="Geladeira Frost-free"
         onClick={() => console.log("CLICOU")}
       />
     </Container>

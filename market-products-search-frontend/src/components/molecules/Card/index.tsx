@@ -13,25 +13,24 @@ const Card: React.FC<CardProps> = ({
     alt,
     width,
     height,
-    classNameImage,
     titleContent,
-    classNameContainer,
     priceContent,
     paragraphContent,
     onClick,
 }: CardProps) => {
   return(
-    <Container className={classNameContainer}>
+    <Container className="cards-container">
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
-        className={classNameImage}
       />
-      <Title content={titleContent}/>
-      <Paragraph content={paragraphContent}/>
-      <Price content={priceContent}/>
+      <Container className="cards-details">
+        <Title content={titleContent}/>
+        <Paragraph content={paragraphContent}/>
+        <Price content={priceContent}/>
+      </Container>
       <Button content="Ir a web" onClick={onClick} />
     </Container>
   );

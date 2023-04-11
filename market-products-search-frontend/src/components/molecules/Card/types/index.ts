@@ -3,9 +3,7 @@ export interface CardProps {
   alt: string;
   width: string;
   height?: string;
-  classNameImage?: string;
   titleContent: string;
-  classNameContainer: string;
   priceContent: string;
   paragraphContent: string;
   onClick: () => void;
