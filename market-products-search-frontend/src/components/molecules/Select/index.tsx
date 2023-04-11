@@ -7,7 +7,7 @@ const Select: React.FC<SelectProps> = ({
     defaultValue,
   }: SelectProps) => {
   return(
-    <select>
+    <select className="form-select form-select-sm select-container">
       <option selected value= ''>{defaultValue}</option>
       {types.map((type,i) => <option key={i}>{type}</option>)}
     </select>

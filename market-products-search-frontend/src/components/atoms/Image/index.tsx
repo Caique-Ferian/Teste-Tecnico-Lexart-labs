@@ -7,7 +7,6 @@ const Image: React.FC<ImageProps> = ({
     alt,
     width,
     height,
-    className,
   }: ImageProps) => {
   return(
     <img
@@ -15,7 +14,6 @@ const Image: React.FC<ImageProps> = ({
       alt={alt}
       width={width}
       height={height}
-      className={className}
     />
   );
 }
