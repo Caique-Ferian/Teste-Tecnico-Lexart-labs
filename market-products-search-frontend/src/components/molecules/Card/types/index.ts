@@ -1,3 +1,5 @@
+import { Details } from "@organisms/MarketSearch/types";
+
 export interface CardProps {
   src: string;
   alt: string;
@@ -5,6 +7,6 @@ export interface CardProps {
   height?: string;
   titleContent: string;
   priceContent: string;
-  paragraphContent: string;
-  onClick: () => void;
+  paragraphContent: Details[];
+  href: string;
 }

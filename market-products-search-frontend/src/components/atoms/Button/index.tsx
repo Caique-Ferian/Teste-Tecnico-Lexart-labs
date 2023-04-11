@@ -3,13 +3,13 @@ import { ButtonProps } from "./types";
 
 const Button: React.FC<ButtonProps> = ({
     onClick,
-    content,
+    children,
   }: ButtonProps) => {
   return(
     <button 
       className="btn btn-primary" 
       onClick={onClick}
-    >{content}
+    >{children}
     </button>
   );
 }
