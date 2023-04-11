@@ -26,3 +26,18 @@
   align-items: center;
   margin: 20px 0px;
 }
+
+.cards-container img {
+  margin-right: 20px;
+}
+
+.cards-details button {
+  margin-top: 10px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+}

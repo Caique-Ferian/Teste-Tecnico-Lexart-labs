@@ -6,7 +6,7 @@ import Price from "@atoms/Price";
 import Title from "@atoms/Title";
 import React from "react";
 import { CardProps } from "./types";
-
+//https://api.mercadolibre.com/sites/MLB/search?q=$QUERY(MELI ENDPOINT GET)
 
 const Card: React.FC<CardProps> = ({
     src,
@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({
     titleContent,
     priceContent,
     paragraphContent,
-    onClick,
+    href,
 }: CardProps) => {
   return(
     <Container className="cards-container">
@@ -28,10 +28,14 @@ const Card: React.FC<CardProps> = ({
       />
       <Container className="cards-details">
         <Title content={titleContent}/>
-        <Paragraph content={paragraphContent}/>
+        {paragraphContent.map((content) => (
+          <Paragraph content={`${content.name}: ${content.value}`} />))}
+        
         <Price content={priceContent}/>
+        <Button>
+          <a target="_blank" href={href} rel="noreferrer">Ir a web</a>
+        </Button>
       </Container>
-      <Button content="Ir a web" onClick={onClick} />
     </Container>
   );
 }
