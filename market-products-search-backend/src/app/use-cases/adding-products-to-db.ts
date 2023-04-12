@@ -6,6 +6,8 @@ export class AddingProductsToDb {
 
   public async execute(request: AddingProductsToDbRequest): Promise<void> {
     const { products } = request;
-    await Promise.all(products.map(this.productRepository.create));
+    await Promise.all(
+      products.map((product) => this.productRepository.create(product)),
+    );
   }
 }
