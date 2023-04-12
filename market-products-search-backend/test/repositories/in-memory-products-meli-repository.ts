@@ -10,7 +10,7 @@ export class InMemoryProductsMeliRepository implements ProductRepository {
   async getAll(): Promise<ProductMeli[]> {
     return this.products;
   }
-  async filter(query: string): Promise<ProductMeli[]> {
+  async filter(query: string, _site: string): Promise<ProductMeli[]> {
     return this.products.filter((e) => e.product.title.includes(query));
   }
 }
