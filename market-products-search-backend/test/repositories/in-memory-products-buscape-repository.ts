@@ -10,7 +10,7 @@ export class InMemoryProductsBuscapeRepository implements ProductRepository {
   async getAll(): Promise<ProductBuscape[]> {
     return this.products;
   }
-  async filter(query: string): Promise<ProductBuscape[]> {
+  async filter(query: string, _site: string): Promise<ProductBuscape[]> {
     return this.products.filter((e) => e.product.title === query);
   }
 }

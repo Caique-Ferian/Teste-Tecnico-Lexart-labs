@@ -5,12 +5,17 @@ export interface AddingProductsToDbRequest {
   products: ProductBuscape[] | ProductMeli[];
 }
 
+export interface GetAllProductsRequest {
+  site: string;
+}
+
 export interface GetAllProductsResponse {
   products: ProductBuscape[] | ProductMeli[];
 }
 
 export interface FilterProductsRequest {
   query: string;
+  site: string;
 }
 
 export interface FilterProductsResponse {

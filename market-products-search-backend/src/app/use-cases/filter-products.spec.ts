@@ -31,7 +31,10 @@ describe('Testing use-case Adding Products To Db', () => {
         price: 'fake-price',
       }),
     );
-    const { products } = await filterProducts.execute({ query: 'fake-title' });
+    const { products } = await filterProducts.execute({
+      query: 'fake-title',
+      site: 'fake-site',
+    });
     expect(products).toHaveLength(2);
   });
   it('should be able to add MELI Products in Db', async () => {
@@ -57,7 +60,10 @@ describe('Testing use-case Adding Products To Db', () => {
         price: 'fake-price',
       }),
     );
-    const { products } = await filterProducts.execute({ query: 'title-2' });
+    const { products } = await filterProducts.execute({
+      query: 'title-2',
+      site: 'fake-site',
+    });
     expect(products).toHaveLength(1);
   });
 });
