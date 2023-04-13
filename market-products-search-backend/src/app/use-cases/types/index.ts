@@ -2,11 +2,13 @@ import { ProductBuscape } from '@app/entities/productBuscape';
 import { ProductMeli } from '@app/entities/productMeli';
 import { ProductBuscapeProps, ProductMeliProps } from '@app/entities/types';
 
-export interface ScrapeBuscapeRequest {
+export interface ScrapBuscapeRequest {
   endpoint: string;
 }
 
-// export interface ScrapeBuscapeResponse {}
+export interface ScrapBuscapeResponse {
+  products: ProductBuscapeProps[];
+}
 
 export interface AddingProductsToDbRequest {
   site: string;
