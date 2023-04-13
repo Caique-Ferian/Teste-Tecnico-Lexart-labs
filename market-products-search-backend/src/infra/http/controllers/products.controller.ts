@@ -4,6 +4,7 @@ import { GetAllProducts } from '@app/use-cases/get-all-products';
 import { FilterProducts } from '@app/use-cases/filter-products';
 import { ProductBuscape } from '@app/entities/productBuscape';
 import { ProductMeli } from '@app/entities/productMeli';
+import { AddingProductsToDbDTO } from '../dtos/';
 
 @Controller('products')
 export class ProductsController {
@@ -14,8 +15,9 @@ export class ProductsController {
   ) {}
 
   @Post()
-  async create(@Body() body: ProductBuscape[] | ProductMeli[]): Promise<void> {
-    await this.addingProductsToDb.execute({ products: body });
+  async create(@Body() body: AddingProductsToDbDTO): Promise<void> {
+    const { products, site } = body;
+    await this.addingProductsToDb.execute({ products, site });
   }
 
   @Get(':site')
