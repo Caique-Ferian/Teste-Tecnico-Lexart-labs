@@ -7,9 +7,6 @@ export class InMemoryProductsBuscapeRepository implements ProductRepository {
   async create(product: ProductBuscape): Promise<void> {
     this.products.push(product);
   }
-  async getAll(): Promise<ProductBuscape[]> {
-    return this.products;
-  }
   async filter(query: string, _site: string): Promise<ProductBuscape[]> {
     return this.products.filter((e) => e.product.title === query);
   }

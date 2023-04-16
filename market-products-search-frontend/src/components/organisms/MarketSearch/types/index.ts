@@ -4,11 +4,15 @@ export interface Details {
 }
 
 export interface IProducts {
-  thumbnail: string;
-  thumbnailId: string;
+  image: string;
   title: string;
   price: number;
   details: Details[];
-  permalink: string;
+  permaLink: string;
 
+}
+
+export interface IInDatabase {
+  site:string;
+  categories:string[];
 }
