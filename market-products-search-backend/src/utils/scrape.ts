@@ -19,8 +19,8 @@ const scrapPage = async (endpoint: string) => {
             .find('div.SearchCard_ProductCard_Rating__5LXFU')
             .text()
             .slice(0, 3),
-          storeMostCheap: $(item).find('h3').text(),
-          price: $(item).find('p.Text_MobileHeadingS__Zxam2').text(),
+          storeMostCheap: $(item).find('h3').text().slice(15),
+          price: $(item).find('p.Text_MobileHeadingS__Zxam2').text().slice(3),
         });
       }
     });

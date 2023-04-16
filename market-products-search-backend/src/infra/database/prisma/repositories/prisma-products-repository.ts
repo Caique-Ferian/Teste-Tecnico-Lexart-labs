@@ -21,16 +21,6 @@ export class PrismaProductsRepository implements ProductRepository {
       });
     }
   }
-  async getAll(site: string): Promise<ProductBuscape[] | ProductMeli[]> {
-    let products;
-    if (site === 'buscape') {
-      products = await this.prisma.productsBuscape.findMany();
-      return products.map(PrismaProductsBuscapeMapper.toDomain);
-    } else {
-      products = await this.prisma.productsMeli.findMany();
-      return products.map(PrismaProductsMeliMapper.toDomain);
-    }
-  }
   async filter(
     query: string,
     site: string,

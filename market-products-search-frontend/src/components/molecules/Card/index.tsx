@@ -4,9 +4,9 @@ import Image from "@atoms/Image";
 import Paragraph from "@atoms/Paragraph";
 import Price from "@atoms/Price";
 import Title from "@atoms/Title";
+import { v4 as uuidv4 } from "uuid";
 import React from "react";
 import { CardProps } from "./types";
-//https://api.mercadolibre.com/sites/MLB/search?q=$QUERY(MELI ENDPOINT GET)
 
 const Card: React.FC<CardProps> = ({
     src,
@@ -19,21 +19,22 @@ const Card: React.FC<CardProps> = ({
     href,
 }: CardProps) => {
   return(
-    <Container className="cards-container">
+    <Container className="cards-container" key={ uuidv4() }>
       <Image
+        key={ uuidv4() }
         src={src}
         alt={alt}
         width={width}
         height={height}
       />
-      <Container className="cards-details">
-        <Title content={titleContent}/>
+      <Container className="cards-details" key={ uuidv4() }>
+        <Title key={ uuidv4() } content={titleContent}/>
         {paragraphContent.map((content) => (
-          <Paragraph content={`${content.name}: ${content.value}`} />))}
+          <Paragraph key={ uuidv4() } content={`${content.name}: ${content.value}`} />))}
         
-        <Price content={priceContent}/>
+        <Price key={ uuidv4() } content={priceContent}/>
         <Button>
-          <a target="_blank" href={href} rel="noreferrer">Ir a web</a>
+          <a key={ uuidv4() } target="_blank" href={href} rel="noreferrer">Ir a web</a>
         </Button>
       </Container>
     </Container>
