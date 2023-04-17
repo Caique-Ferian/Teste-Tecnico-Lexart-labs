@@ -2,8 +2,12 @@ import * as rp from 'request-promise';
 import * as cheerio from 'cheerio';
 import { BASE_URL } from '../constants';
 const scrapPage = async (endpoint: string) => {
+  let typeSearch = endpoint;
+  if (endpoint.includes('_')) {
+    typeSearch = endpoint.replace('_', '%20');
+  }
   const options = {
-    uri: BASE_URL + endpoint,
+    uri: BASE_URL + typeSearch,
     transform: (body) => cheerio.load(body),
   };
   const data = [];
