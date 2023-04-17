@@ -5,8 +5,10 @@ import { apiMeliRequestGet, apiNestRequestScrap } from "./request";
 export const inDatabaseCheck = async (
   site:string,
   category:string,
+  filter:string,
   inDatabase: IInDatabase[],
   setInDatabase:Dispatch<SetStateAction<IInDatabase[]>>) => {
+    const endpoint = filter ? category + "_" + filter : category;
     if(site === 'Todas') {
     if(!inDatabase[0].categories.includes(category)
       && !inDatabase[1].categories.includes(category)) {
@@ -20,8 +22,8 @@ export const inDatabaseCheck = async (
         }]
         return result;
       });
-      await apiMeliRequestGet(category);
-      await apiNestRequestScrap(category);
+      await apiMeliRequestGet(endpoint);
+      await apiNestRequestScrap(endpoint);
     }
   }
   if(site === 'Mercado Livre') {
@@ -33,7 +35,7 @@ export const inDatabaseCheck = async (
         }, prev[1]]
         return result;
       });
-      await apiMeliRequestGet(category);
+      await apiMeliRequestGet(endpoint);
     }
   }
   else if(site === 'Buscapé') {
@@ -45,7 +47,7 @@ export const inDatabaseCheck = async (
         }]
         return result;
       });
-      await apiNestRequestScrap(category);
+      await apiNestRequestScrap(endpoint);
     }
   }
  

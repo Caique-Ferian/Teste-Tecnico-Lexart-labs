@@ -27,11 +27,12 @@ export class PrismaProductsRepository implements ProductRepository {
   ): Promise<ProductBuscape[] | ProductMeli[]> {
     let products;
     if (site === 'buscape') {
-      if (query.includes('%')) {
+      if (query.includes('_')) {
+        const index = query.split('').findIndex((e) => e === '_');
         products = await this.prisma.productsBuscape.findMany({
           where: {
             title: {
-              contains: query,
+              contains: query.slice(index + 1),
             },
           },
         });
@@ -47,10 +48,11 @@ export class PrismaProductsRepository implements ProductRepository {
       return products.map(PrismaProductsBuscapeMapper.toDomain);
     } else {
       if (query.includes('_')) {
+        const index = query.split('').findIndex((e) => e === '_');
         products = await this.prisma.productsMeli.findMany({
           where: {
             title: {
-              contains: query,
+              contains: query.slice(index + 1),
             },
           },
         });

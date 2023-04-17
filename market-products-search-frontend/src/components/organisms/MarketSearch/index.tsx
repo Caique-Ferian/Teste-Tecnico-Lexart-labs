@@ -18,11 +18,11 @@ const MarketSearch: React.FC = () => {
   const [products, setProducts] = useState<IProducts[]>([]);
   const findProducts = async () => {
     setProducts([]);
-    await inDatabaseCheck(site,category,inDatabase,setInDatabase);
+    await inDatabaseCheck(site,category,filter,inDatabase,setInDatabase);
     let result;
     const meliEndpoint = filter ? `/products/filter/mercadoLivre/${category+"_"+filter}` 
       : `/products/filter/mercadoLivre/${category}`;
-    const buscapeEndpoint = filter ? `/products/filter/buscape/${category+"%"+filter}` 
+    const buscapeEndpoint = filter ? `/products/filter/buscape/${category+"_"+filter}` 
     : `/products/filter/buscape/${category}`;
     if(site === 'Todas') {
       const meliProducts = await apiNestRequestGet(meliEndpoint);
