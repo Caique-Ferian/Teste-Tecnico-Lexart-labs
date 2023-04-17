@@ -27,22 +27,42 @@ export class PrismaProductsRepository implements ProductRepository {
   ): Promise<ProductBuscape[] | ProductMeli[]> {
     let products;
     if (site === 'buscape') {
-      products = await this.prisma.productsBuscape.findMany({
-        where: {
-          type: {
-            contains: query,
+      if (query.includes('%')) {
+        products = await this.prisma.productsBuscape.findMany({
+          where: {
+            title: {
+              contains: query,
+            },
           },
-        },
-      });
+        });
+      } else {
+        products = await this.prisma.productsBuscape.findMany({
+          where: {
+            type: {
+              contains: query,
+            },
+          },
+        });
+      }
       return products.map(PrismaProductsBuscapeMapper.toDomain);
     } else {
-      products = await this.prisma.productsMeli.findMany({
-        where: {
-          type: {
-            contains: query,
+      if (query.includes('_')) {
+        products = await this.prisma.productsMeli.findMany({
+          where: {
+            title: {
+              contains: query,
+            },
           },
-        },
-      });
+        });
+      } else {
+        products = await this.prisma.productsMeli.findMany({
+          where: {
+            type: {
+              contains: query,
+            },
+          },
+        });
+      }
       return products.map(PrismaProductsMeliMapper.toDomain);
     }
   }
