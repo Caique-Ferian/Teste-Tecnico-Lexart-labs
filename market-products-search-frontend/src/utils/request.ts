@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Details } from '@organisms/MarketSearch/types';
 
 const apiMeli = axios.create({
-  baseURL: 'https://api.mercadolibre.com/sites/MLB/'
+  baseURL: 'https://api.mercadolibre.com/sites/MLB/search?q='
 });
 
 export const apiMeliRequestGet = async (endpoint: string) => {
@@ -20,6 +20,7 @@ export const apiMeliRequestGet = async (endpoint: string) => {
       if(name === 'Modelo') details.push({name:'Model',value:value_name})
     });
     return {
+      type: endpoint,
       image: thumbnail,
       title,
       price,
@@ -68,7 +69,8 @@ export const apiNestRequestScrap = async (endpoint: string) => {
 export const apiNestRequestPost = async (body: any[], site: string) => {
   let products;
   if (site === 'mercadoLivre') {
-    products = body.map(({ image, title, price, details, permaLink }) => ({
+    products = body.map(({ type,image, title, price, details, permaLink }) => ({
+      type,
       image,
       title,
       price: price.toString(),

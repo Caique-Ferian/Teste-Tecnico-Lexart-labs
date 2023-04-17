@@ -9,6 +9,7 @@ datasource db {
 
 model ProductsMeli {
   id        Int    @id @default(autoincrement())
+  type      String
   permaLink String
   image     String
   title     String
@@ -19,6 +20,7 @@ model ProductsMeli {
 
 model ProductsBuscape {
   id             Int    @id @default(autoincrement())
+  type           String
   permaLink      String
   image          String
   title          String

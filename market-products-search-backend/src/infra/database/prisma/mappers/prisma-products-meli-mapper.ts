@@ -4,6 +4,7 @@ import { ProductMeli } from '@app/entities/productMeli';
 export class PrismaProductsMeliMapper {
   static toPrisma(product: ProductMeli) {
     return {
+      type: product.product.type,
       permaLink: product.product.permaLink,
       image: product.product.image,
       title: product.product.title,
@@ -15,6 +16,7 @@ export class PrismaProductsMeliMapper {
 
   static toDomain(raw: ProductsMeli): ProductMeli {
     return new ProductMeli({
+      type: raw.type as 'Geladeira' | 'Celular' | 'TV',
       permaLink: raw.permaLink,
       image: raw.image,
       title: raw.title,

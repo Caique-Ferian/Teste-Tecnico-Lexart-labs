@@ -3,6 +3,7 @@ import { ProductBuscape } from './productBuscape';
 describe('Product Buscape', () => {
   it('should be able to create a new product', () => {
     const product = new ProductBuscape({
+      type: 'Geladeira',
       permaLink: 'fake-link',
       image: 'fake-image',
       title: 'fake-title',

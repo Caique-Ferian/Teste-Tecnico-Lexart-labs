@@ -4,6 +4,7 @@ import { ProductBuscape } from '@app/entities/productBuscape';
 export class PrismaProductsBuscapeMapper {
   static toPrisma(product: ProductBuscape) {
     return {
+      type: product.product.type,
       permaLink: product.product.permaLink,
       image: product.product.image,
       title: product.product.title,
@@ -15,6 +16,7 @@ export class PrismaProductsBuscapeMapper {
 
   static toDomain(raw: ProductsBuscape): ProductBuscape {
     return new ProductBuscape({
+      type: raw.type as 'Geladeira' | 'Celular' | 'TV',
       permaLink: raw.permaLink,
       image: raw.image,
       title: raw.title,

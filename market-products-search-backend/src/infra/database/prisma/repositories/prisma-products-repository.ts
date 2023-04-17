@@ -29,7 +29,7 @@ export class PrismaProductsRepository implements ProductRepository {
     if (site === 'buscape') {
       products = await this.prisma.productsBuscape.findMany({
         where: {
-          title: {
+          type: {
             contains: query,
           },
         },
@@ -38,7 +38,7 @@ export class PrismaProductsRepository implements ProductRepository {
     } else {
       products = await this.prisma.productsMeli.findMany({
         where: {
-          title: {
+          type: {
             contains: query,
           },
         },
