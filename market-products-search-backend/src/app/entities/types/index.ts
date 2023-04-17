@@ -1,4 +1,5 @@
 export interface ProductBuscapeProps {
+  type: 'Geladeira' | 'Celular' | 'TV';
   permaLink: string;
   image: string;
   title: string;
@@ -8,6 +9,7 @@ export interface ProductBuscapeProps {
 }
 
 export interface ProductMeliProps {
+  type: 'Geladeira' | 'Celular' | 'TV';
   permaLink: string;
   image: string;
   title: string;

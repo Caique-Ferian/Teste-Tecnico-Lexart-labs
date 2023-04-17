@@ -8,10 +8,16 @@ const scrapPage = async (endpoint: string) => {
   };
   const data = [];
   const $ = await rp(options);
+  const type = endpoint.toLowerCase().includes('geladeira')
+    ? 'Geladeira'
+    : endpoint.toLowerCase().includes('celular')
+    ? 'Celular'
+    : 'TV';
   try {
     $('div.Paper_Paper__HIHv0').each((i, item) => {
       if (i < 6) {
         data.push({
+          type,
           permaLink: $(item).find('a').attr('href'),
           image: $(item).find('img').attr('src'),
           title: $(item).find('h2').text(),

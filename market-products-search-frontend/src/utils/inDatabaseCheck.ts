@@ -20,7 +20,7 @@ export const inDatabaseCheck = async (
         }]
         return result;
       });
-      await apiMeliRequestGet(`search?q=${category}`);
+      await apiMeliRequestGet(category);
       await apiNestRequestScrap(category);
     }
   }
@@ -33,7 +33,7 @@ export const inDatabaseCheck = async (
         }, prev[1]]
         return result;
       });
-      await apiMeliRequestGet(`search?q=${category}`);
+      await apiMeliRequestGet(category);
     }
   }
   else if(site === 'Buscapé') {

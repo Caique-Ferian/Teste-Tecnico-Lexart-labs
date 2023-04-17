@@ -3,6 +3,7 @@ import { ProductMeli } from './productMeli';
 describe('Product MELI', () => {
   it('should be able to create a new product', () => {
     const product = new ProductMeli({
+      type: 'Geladeira',
       permaLink: 'fake-link',
       image: 'fake-image',
       title: 'fake-title',
