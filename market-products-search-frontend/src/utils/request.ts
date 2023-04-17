@@ -32,7 +32,11 @@ export const apiMeliRequestGet = async (endpoint: string) => {
 }
 
 const apiNest = axios.create({
-  baseURL: process.env.REACT_APP_API_HOST || 'http://localhost:3001'
+  baseURL: process.env.REACT_APP_API_HOST || 'http://localhost:3001',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }
 });
 
 export const apiNestRequestGet = async (endpoint: string) => {
